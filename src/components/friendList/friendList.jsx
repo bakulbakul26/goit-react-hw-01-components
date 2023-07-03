@@ -1,9 +1,9 @@
 import React from 'react';
-import './friendListcss.css';
+import css from './friendListcss.module.css';
 
 const FriendList = ({ friends }) => {
   return (
-    <ul className="friend-list">
+    <ul className={css.friend}>
       {friends.map(friend => (
         <FriendListItem key={friend.id} friend={friend} />
       ))}
@@ -14,10 +14,10 @@ const FriendList = ({ friends }) => {
 const FriendListItem = ({ friend }) => {
   const { avatar, name, isOnline } = friend;
   return (
-    <li className="item">
+    <li className={css.item}>
       <span className={`status ${isOnline ? 'online' : 'offline'}`}></span>
-      <img className="avatar" src={avatar} alt="User avatar" width="48" />
-      <p className="name">{name}</p>
+      <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
+      <p className={css.name}>{name}</p>
     </li>
   );
 };
